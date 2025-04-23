@@ -28,7 +28,7 @@ export default class CadastroForm extends Component {
         try {
             const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, senha);
             const user = userCredential.user;
-            const a = await firebase.firestore().collection("usuarios").doc(user.uid).set({
+            await firebase.firestore().collection("usuarios").doc(user.uid).set({
                 uid: user.uid,
                 nome: nome,
                 sobrenome: sobrenome,

@@ -20,9 +20,10 @@ export default class LoginForm extends Component {
     };
 
     handleSubmit = async (event) => {
+        event.preventDefault();
         try {
             const { email, senha } = this.state;
-            const a = await firebase.auth().signInWithEmailAndPassword(email, senha);
+            await firebase.auth().signInWithEmailAndPassword(email, senha);
 
             window.location.href = "/principal";
         } catch {
